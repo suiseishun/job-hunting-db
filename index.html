@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>就活企業DB</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>就活企業データベース</h1>
+        
+        <div id="summaryContainer" class="summary-container"></div>
+
+        <div id="filterButtons"></div>
+        
+        <div class="controls">
+            <input type="text" id="searchInput" placeholder="企業名・業界で検索...">
+            <select id="sortSelect">
+                <option value="name">企業名順</option>
+                <option value="salary_avg">全体平均年収順 (高い順)</option>
+                <option value="salary_new">新卒平均年収順 (高い順)</option>
+                <option value="employees">従業員数順 (多い順)</option>
+            </select>
+            <button id="viewListBtn">全リスト表示</button>
+            <button id="viewGroupBtn">業界・業種別に分ける</button>
+        </div>
+
+        <table id="companyTable">
+            <thead>
+                <tr>
+                    <th>★</th>
+                    <th>選考状況</th>
+                    <th>企業名</th>
+                    <th>業界</th>
+                    <th>業種</th>
+                    <th>年収</th>
+                    <th>従業員数</th>
+                    <th>URL</th>
+                    <th>基本情報</th>
+                    <th>自分用メモ</th>
+                    <th style="width: 50px;">操作</th> </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+
+        <div class="admin-form">
+            <h3>🏢 新規企業追加 (デモ用)</h3>
+            <div class="form-grid">
+                <input type="text" id="new_name" placeholder="企業名">
+                <input type="text" id="new_industry" placeholder="業界">
+                <input type="text" id="new_category" placeholder="業種">
+                <input type="text" id="new_salary" placeholder="年収 (例: 800(550))">
+                <input type="number" id="new_employees" placeholder="従業員数">
+                <input type="text" id="new_url" placeholder="URL">
+            </div>
+            <textarea id="new_memo" placeholder="企業メモ（特徴、強み、基本情報など）"></textarea>
+            <div style="margin-top: 10px; display: flex; gap: 10px;">
+                <button onclick="addCompany()" style="background: #27ae60;">＋ 企業を追加</button>
+                <button onclick="resetToDefault()" style="background: #e74c3c;">⚠️ データを初期化</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
